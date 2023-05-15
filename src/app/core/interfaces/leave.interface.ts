@@ -1,6 +1,6 @@
 import { LeaveStatus } from 'src/app/app.constants';
-import { IUser } from './user.interface';
 import { IDepartment } from './department.interface';
+import { IUser } from './user.interface';
 
 export interface ILeave {
   _id: string;

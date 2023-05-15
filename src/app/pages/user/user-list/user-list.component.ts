@@ -1,6 +1,5 @@
 import { AfterViewInit, Component, OnDestroy, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup } from '@angular/forms';
-import { Router } from '@angular/router';
 import { Subscription, debounceTime } from 'rxjs';
 import { AppDefaults, SortBy, UserRoles, UserStatus } from 'src/app/app.constants';
 import { ISortChange, ISortOptions } from 'src/app/core/interfaces/common.interface';

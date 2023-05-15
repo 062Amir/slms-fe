@@ -1,10 +1,10 @@
-import { HttpClient, HttpResponse } from '@angular/common/http';
+import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { lastValueFrom } from 'rxjs';
-import { apiResourses, LeaveStatus } from 'src/app/app.constants';
+import { apiResourses } from 'src/app/app.constants';
 import { ILeaveFilters } from '../interfaces/filter.interface';
 import { ILeave } from '../interfaces/leave.interface';
-import { IListResponse } from '../interfaces/common.interface';
+import { IListResponse } from '../interfaces/response.interface';
 import { UtilService } from './util.service';
 
 @Injectable()

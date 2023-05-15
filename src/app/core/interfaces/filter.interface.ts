@@ -1,11 +1,11 @@
-import { LeaveStatus } from 'src/app/app.constants';
+import { LeaveStatus, SortBy } from 'src/app/app.constants';
 
 interface CommonFiltes {
   q?: string;
   page?: number;
   limit?: number;
   sort?: string;
-  sortBy?: 'asc' | 'desc';
+  sortBy?: `${SortBy}`;
 }
 
 export interface IDepartmentFilters extends CommonFiltes {}

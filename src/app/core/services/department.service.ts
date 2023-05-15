@@ -2,10 +2,10 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { lastValueFrom } from 'rxjs';
 import { apiResourses } from 'src/app/app.constants';
-import { UtilService } from './util.service';
-import { IListResponse } from '../interfaces/response.interface';
-import { IDepartmentFilters } from '../interfaces/filter.interface';
 import { IDepartment } from '../interfaces/department.interface';
+import { IDepartmentFilters } from '../interfaces/filter.interface';
+import { IListResponse } from '../interfaces/response.interface';
+import { UtilService } from './util.service';
 
 @Injectable()
 export class DepartmentService {

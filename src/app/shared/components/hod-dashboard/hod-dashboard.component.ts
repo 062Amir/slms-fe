@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { AppDefaults, SortBy, UserRoles, UserStatus } from 'src/app/app.constants';
+import { AppDefaults, SortBy, UserStatus } from 'src/app/app.constants';
 import { ISortOptions } from 'src/app/core/interfaces/common.interface';
 import { IUserFilters } from 'src/app/core/interfaces/filter.interface';
 import { IUser } from 'src/app/core/interfaces/user.interface';

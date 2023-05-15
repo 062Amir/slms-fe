@@ -1,13 +1,13 @@
 import { Injectable } from '@angular/core';
 import { UserRoles } from 'src/app/app.constants';
-import { ISidebardItem } from '../interfaces/sidebar-item.interface';
+import { ISidebarItem } from '../interfaces/sidebar-item.interface';
 import { IUser } from '../interfaces/user.interface';
 
 @Injectable()
 export class SidebarService {
   isSidebarOpen: boolean;
 
-  sidebarItems: ISidebardItem[] = [
+  sidebarItems: ISidebarItem[] = [
     {
       text: 'Dashboard',
       path: '/dashboard',
@@ -38,7 +38,7 @@ export class SidebarService {
     this.isSidebarOpen = false;
   }
 
-  getSidebarItems(loggedInUser: IUser): ISidebardItem[] {
+  getSidebarItems(loggedInUser: IUser): ISidebarItem[] {
     if (loggedInUser) {
       return this.sidebarItems.filter((item) => item.roles.includes(loggedInUser.role));
     }

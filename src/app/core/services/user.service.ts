@@ -2,9 +2,8 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { lastValueFrom } from 'rxjs';
 import { apiResourses } from 'src/app/app.constants';
-import { IListResponse } from '../interfaces/common.interface';
-import { IUserCredentials } from '../interfaces/credentials.interface';
 import { IUserFilters } from '../interfaces/filter.interface';
+import { IListResponse } from '../interfaces/response.interface';
 import { IUser } from '../interfaces/user.interface';
 import { UtilService } from './util.service';
 

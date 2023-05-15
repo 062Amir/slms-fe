@@ -1,6 +1,6 @@
 import { Component, ElementRef, HostListener, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
-import { ISidebardItem } from 'src/app/core/interfaces/sidebar-item.interface';
+import { ISidebarItem } from 'src/app/core/interfaces/sidebar-item.interface';
 import { IUser } from 'src/app/core/interfaces/user.interface';
 import { AuthService } from 'src/app/core/services/auth.service';
 import { SidebarService } from 'src/app/core/services/sidebar.service';
@@ -11,7 +11,7 @@ import { SidebarService } from 'src/app/core/services/sidebar.service';
   styleUrls: ['./sidebar.component.css'],
 })
 export class SidebarComponent implements OnInit {
-  sidebarItems: ISidebardItem[];
+  sidebarItems: ISidebarItem[];
   loggedInUser: IUser;
 
   constructor(public sidebarSvc: SidebarService, private authSvc: AuthService, private router: Router, private elementRef: ElementRef) {}

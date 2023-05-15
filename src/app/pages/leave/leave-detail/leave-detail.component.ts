@@ -1,9 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { LeaveStatus, UserRoles } from 'src/app/app.constants';
-// import { leaveStatusTypes, userRoleTypes } from 'src/app/app.constants';
 import { ILeave } from 'src/app/core/interfaces/leave.interface';
-import { IUser } from 'src/app/core/interfaces/user.interface';
 import { AppNotificationService } from 'src/app/core/services/app-notification.service';
 import { AuthService } from 'src/app/core/services/auth.service';
 import { LeaveService } from 'src/app/core/services/leave.service';

@@ -4,7 +4,6 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { NgbDateStruct } from '@ng-bootstrap/ng-bootstrap';
 import { AppValidators } from 'src/app/core/classes/app-validator.class';
 import { AppNotificationService } from 'src/app/core/services/app-notification.service';
-import { AuthService } from 'src/app/core/services/auth.service';
 import { LeaveService } from 'src/app/core/services/leave.service';
 import { UtilService } from 'src/app/core/services/util.service';
 
@@ -31,7 +30,6 @@ export class LeaveAddEditComponent implements OnInit {
     public utilSvc: UtilService,
     private notifySvc: AppNotificationService,
     private router: Router,
-    private authSvc: AuthService,
     private leaveSvc: LeaveService
   ) {}
 

@@ -5,8 +5,6 @@ import { NgbDateStruct, NgbModal, NgbModalOptions } from '@ng-bootstrap/ng-boots
 import { NgxSpinnerService } from 'ngx-spinner';
 import { UserStatus, LeaveStatus } from 'src/app/app.constants';
 import { ConfirmModalComponent } from 'src/app/shared/components/confirm-modal/confirm-modal.component';
-import { v4 as uuid } from 'uuid';
-import { IListResponse } from '../interfaces/common.interface';
 import { ILeave } from '../interfaces/leave.interface';
 import { IUser } from '../interfaces/user.interface';
 
@@ -24,23 +22,6 @@ export class UtilService {
 
   hideSpinner(name: string = '') {
     name ? this.spinner.hide(name) : this.spinner.hide();
-  }
-
-  convertFileToBase64(file: File): Promise<string> {
-    return new Promise((resolve, reject) => {
-      const reader = new FileReader();
-      reader.readAsDataURL(file);
-      reader.onload = () => {
-        resolve(reader.result as string);
-      };
-      reader.onerror = (error) => {
-        reject(error);
-      };
-    });
-  }
-
-  generateUniqueId(): string {
-    return uuid();
   }
 
   getHttpOptions(filters: any = {}) {
@@ -81,13 +62,6 @@ export class UtilService {
       day: date.getUTCDate(),
       month: date.getUTCMonth() + 1,
       year: date.getUTCFullYear(),
-    };
-  }
-
-  getListResponse(response: any): IListResponse {
-    return {
-      data: response?.body || [],
-      total: +(response?.headers?.get('X-Total-Count') || 0),
     };
   }
 

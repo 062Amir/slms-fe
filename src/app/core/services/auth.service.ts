@@ -1,13 +1,13 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { lastValueFrom } from 'rxjs';
-import { apiResourses, AppMessages, LocalStorageKeys } from 'src/app/app.constants';
-import { ILoginCredentials, IUserCredentials } from '../interfaces/credentials.interface';
-import { IUser } from '../interfaces/user.interface';
-import { UtilService } from './util.service';
-import { StorageService } from './storage.service';
-import { ILoginResponse } from '../interfaces/response.interface';
+import { apiResourses, LocalStorageKeys } from 'src/app/app.constants';
+import { ILoginCredentials } from '../interfaces/credentials.interface';
 import { IUpdatePassword } from '../interfaces/reset.interface';
+import { ILoginResponse } from '../interfaces/response.interface';
+import { IUser } from '../interfaces/user.interface';
+import { StorageService } from './storage.service';
+import { UtilService } from './util.service';
 
 @Injectable()
 export class AuthService {

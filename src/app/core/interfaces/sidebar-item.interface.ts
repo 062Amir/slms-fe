@@ -1,4 +1,4 @@
-export interface ISidebardItem {
+export interface ISidebarItem {
   text: string;
   path: string;
   roles: string[];
