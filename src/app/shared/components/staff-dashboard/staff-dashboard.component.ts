@@ -96,7 +96,7 @@ export class StaffDashboardComponent implements OnInit {
   async loadApprovedLeaveCounts(): Promise<void> {
     try {
       this.utilSvc.showSpinner('approved-leave-count-spinner');
-      this.counts.applied = await this.leaveSvc.getLeaveCount({
+      this.counts.approved = await this.leaveSvc.getLeaveCount({
         status: LeaveStatus.APPROVED,
       });
     } catch (error) {
@@ -109,7 +109,7 @@ export class StaffDashboardComponent implements OnInit {
   async loadRejectedLeaveCounts(): Promise<void> {
     try {
       this.utilSvc.showSpinner('rejected-leave-count-spinner');
-      this.counts.applied = await this.leaveSvc.getLeaveCount({
+      this.counts.rejected = await this.leaveSvc.getLeaveCount({
         status: LeaveStatus.REJECTED,
       });
     } catch (error) {

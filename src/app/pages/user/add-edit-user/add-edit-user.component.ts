@@ -18,15 +18,15 @@ export class AddEditUserComponent implements OnInit {
   }
 
   get isUserAdmin(): boolean {
-    return this.authSvc.getLoggedInUser.role === UserRoles.ADMIN;
+    return this.authSvc.getLoggedInUser?.role === UserRoles.ADMIN;
   }
 
   get isUserHod(): boolean {
-    return this.authSvc.getLoggedInUser.role === UserRoles.HOD;
+    return this.authSvc.getLoggedInUser?.role === UserRoles.HOD;
   }
 
   get defaultDepartment(): string {
-    return this.authSvc.getLoggedInUser.department._id;
+    return this.authSvc.getLoggedInUser?.department._id;
   }
 
   constructor(

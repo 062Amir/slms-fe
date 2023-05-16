@@ -66,11 +66,11 @@ export class LeaveListComponent implements OnInit, AfterViewInit, OnDestroy {
   }
 
   get isUserHod(): boolean {
-    return this.authSvc.getLoggedInUser.role === UserRoles.HOD;
+    return this.authSvc.getLoggedInUser?.role === UserRoles.HOD;
   }
 
   get isUserStaff(): boolean {
-    return this.authSvc.getLoggedInUser.role === UserRoles.STAFF;
+    return this.authSvc.getLoggedInUser?.role === UserRoles.STAFF;
   }
 
   // get fromMinDate(): NgbDateStruct {

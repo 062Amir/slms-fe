@@ -17,7 +17,7 @@ export class LeaveDetailComponent implements OnInit {
   leaveInfo: ILeave | null;
 
   get isUserHod(): boolean {
-    return this.authSvc.getLoggedInUser.role === UserRoles.HOD;
+    return this.authSvc.getLoggedInUser?.role === UserRoles.HOD;
   }
 
   get LeaveStatus() {
