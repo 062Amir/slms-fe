@@ -1,12 +1,13 @@
 {
-  "name": "SLMS-FE",
+  "name": "slsm-fe",
   "version": "1.0.0",
   "scripts": {
     "ng": "ng",
     "start": "ng serve --o",
-    "build": "ng build",
+    "build": "ng build --prod",
     "watch": "ng build --watch --configuration development",
-    "test": "ng test"
+    "test": "ng test",
+    "deploy": "ng build --prod && firebase deploy"
   },
   "private": true,
   "dependencies": {
