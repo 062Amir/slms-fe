@@ -10,7 +10,7 @@ import { AppNotificationService } from 'src/app/core/services/app-notification.s
 import { AuthService } from 'src/app/core/services/auth.service';
 import { DepartmentService } from 'src/app/core/services/department.service';
 import { UtilService } from 'src/app/core/services/util.service';
-import { AddEditDepartmentComponent } from 'src/app/shared/components/add-edit-department/add-edit-department.component';
+import { AddEditDepartmentComponent } from 'src/app/pages/department/add-edit-department/add-edit-department.component';
 
 @Component({
   selector: 'app-department-list',

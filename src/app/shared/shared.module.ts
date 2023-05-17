@@ -4,7 +4,6 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { RouterModule } from '@angular/router';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { NgxSpinnerModule } from 'ngx-spinner';
-import { AddEditDepartmentComponent } from './components/add-edit-department/add-edit-department.component';
 import { AddUserFormComponent } from './components/add-user-form/add-user-form.component';
 import { AdminDashboardComponent } from './components/admin-dashboard/admin-dashboard.component';
 import { ConfirmModalComponent } from './components/confirm-modal/confirm-modal.component';
@@ -28,7 +27,6 @@ import { UserInfoComponent } from './components/user-info/user-info.component';
     TableComponent,
     ConfirmModalComponent,
     AdminDashboardComponent,
-    AddEditDepartmentComponent,
     UserInfoComponent,
     FooterComponent,
   ],

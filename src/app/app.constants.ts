@@ -4,7 +4,7 @@ function createUrl(actionName: string): string {
   return `${environment.apiHost}${actionName}`;
 }
 
-export const apiResourses = {
+export const apiResources = {
   login: createUrl('/auth/login'),
   logout: createUrl('/auth/logout'),
   register: createUrl('/auth/register'),
@@ -16,7 +16,7 @@ export const apiResourses = {
 };
 
 export enum AppMessages {
-  DEFAULT_ERROR = 'An unexpected error occured, please try again later',
+  DEFAULT_ERROR = 'An unexpected error occurred, please try again later',
   USER_ALREADY_EXISTS = 'User already exists with this contact number/email/username.',
   INVALID_CREDENTIALS = 'Invalid credentials',
 }
