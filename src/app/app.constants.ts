@@ -6,6 +6,7 @@ function createUrl(actionName: string): string {
 
 export const apiResourses = {
   login: createUrl('/auth/login'),
+  logout: createUrl('/auth/logout'),
   register: createUrl('/auth/register'),
   verifyEmail: createUrl('/auth/verify-email'),
   updatePassword: createUrl('/auth/reset'),

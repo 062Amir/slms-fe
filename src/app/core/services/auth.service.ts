@@ -41,6 +41,11 @@ export class AuthService {
   }
 
   logout() {
+    try {
+      lastValueFrom(this.http.post<IUser>(apiResourses.logout, null, this.utilSvc.getHttpOptions()));
+    } catch (error) {
+      console.error(error);
+    }
     this.clearUserData();
     return true;
   }
