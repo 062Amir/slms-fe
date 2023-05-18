@@ -30,6 +30,11 @@ body.push {
   background-color: #E4A11B !important;
 }
 
+.bg-purple,
+.btn-purple {
+  background-color: #7B1FA2 !important;
+}
+
 .bg-danger,
 .btn-danger {
   background-color: #DC4C64 !important;
@@ -180,4 +185,9 @@ table {
 
 .faded-text {
   color: #9E9E9E;
+}
+
+h5,
+.h5 {
+  font-size: 1.2rem;
 }

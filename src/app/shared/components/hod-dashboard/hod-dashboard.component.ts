@@ -1,10 +1,11 @@
 import { Component, OnInit } from '@angular/core';
-import { AppDefaults, SortBy, UserStatus } from 'src/app/app.constants';
+import { AppDefaults, LeaveStatus, SortBy, UserStatus } from 'src/app/app.constants';
 import { ISortOptions } from 'src/app/core/interfaces/common.interface';
 import { IUserFilters } from 'src/app/core/interfaces/filter.interface';
 import { IUser } from 'src/app/core/interfaces/user.interface';
 import { AppNotificationService } from 'src/app/core/services/app-notification.service';
 import { AuthService } from 'src/app/core/services/auth.service';
+import { LeaveService } from 'src/app/core/services/leave.service';
 import { UserService } from 'src/app/core/services/user.service';
 import { UtilService } from 'src/app/core/services/util.service';
 
@@ -19,6 +20,7 @@ export class HodDashboardComponent implements OnInit {
     totalMembers: 0,
     activeMembers: 0,
     inactiveMembers: 0,
+    todayLeaveMembers: 0,
   };
 
   sortOptions: ISortOptions[] = [
@@ -56,7 +58,8 @@ export class HodDashboardComponent implements OnInit {
     public authSvc: AuthService,
     public utilSvc: UtilService,
     private notifySvc: AppNotificationService,
-    private userSvc: UserService
+    private userSvc: UserService,
+    private leaveSvc: LeaveService
   ) {}
 
   ngOnInit(): void {
@@ -72,6 +75,7 @@ export class HodDashboardComponent implements OnInit {
     this.loadTotalMembersCounts();
     this.loadActiveMembersCounts();
     this.loadInactiveMembersCounts();
+    this.loadTodayLeaveMemberCounts();
     this.loadStaffs();
   }
 
@@ -96,6 +100,40 @@ export class HodDashboardComponent implements OnInit {
       this.notifySvc.error(error);
     } finally {
       this.utilSvc.hideSpinner('active-members-count-spinner');
+    }
+  }
+
+  async loadTodayLeaveMemberCounts(): Promise<void> {
+    try {
+      this.utilSvc.showSpinner('today-leave-members-count-spinner');
+      const today = new Date();
+      this.counts.todayLeaveMembers = await this.leaveSvc.getLeaveCount({
+        fromDate: this.utilSvc
+          .getFormattedDate(
+            {
+              day: today.getDate(),
+              month: today.getMonth() + 1,
+              year: today.getFullYear(),
+            },
+            'start'
+          )
+          .toISOString(),
+        toDate: this.utilSvc
+          .getFormattedDate(
+            {
+              day: today.getDate(),
+              month: today.getMonth() + 1,
+              year: today.getFullYear(),
+            },
+            'end'
+          )
+          .toISOString(),
+        status: LeaveStatus.APPROVED,
+      });
+    } catch (error) {
+      this.notifySvc.error(error);
+    } finally {
+      this.utilSvc.hideSpinner('today-leave-members-count-spinner');
     }
   }
 

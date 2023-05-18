@@ -27,4 +27,9 @@ export class DepartmentService {
     await lastValueFrom(this.http.delete<any>(`${apiResources.department}/${id}`));
     return true;
   }
+
+  async getDepartmentCount(filters?: IDepartmentFilters): Promise<number> {
+    const response = await lastValueFrom(this.http.get<IListResponse>(apiResources.department, this.utilSvc.getHttpOptions(filters)));
+    return response.total || 0;
+  }
 }

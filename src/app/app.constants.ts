@@ -27,7 +27,7 @@ export enum SortBy {
 }
 
 export enum AppDefaults {
-  MIN_ALLOWED_FILE_SIZE = 1000000, // 1MB
+  MIN_ALLOWED_FILE_SIZE = 2097152, // 2MB
   PAGE_COUNT = 10,
   SORT = 'createdAt',
 }

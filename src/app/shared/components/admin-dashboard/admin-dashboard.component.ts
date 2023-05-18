@@ -5,6 +5,7 @@ import { IUserFilters } from 'src/app/core/interfaces/filter.interface';
 import { IUser } from 'src/app/core/interfaces/user.interface';
 import { AppNotificationService } from 'src/app/core/services/app-notification.service';
 import { AuthService } from 'src/app/core/services/auth.service';
+import { DepartmentService } from 'src/app/core/services/department.service';
 import { UserService } from 'src/app/core/services/user.service';
 import { UtilService } from 'src/app/core/services/util.service';
 
@@ -19,6 +20,7 @@ export class AdminDashboardComponent implements OnInit {
     totalHods: 0,
     activeHods: 0,
     inactiveHods: 0,
+    departments: 0,
   };
 
   sortOptions: ISortOptions[] = [
@@ -60,7 +62,8 @@ export class AdminDashboardComponent implements OnInit {
     public authSvc: AuthService,
     public utilSvc: UtilService,
     private notifySvc: AppNotificationService,
-    private userSvc: UserService
+    private userSvc: UserService,
+    private departmentSvc: DepartmentService
   ) {}
 
   ngOnInit(): void {
@@ -76,6 +79,7 @@ export class AdminDashboardComponent implements OnInit {
     this.loadTotalHodsCounts();
     this.loadActiveHodsCounts();
     this.loadInactiveHodsCounts();
+    this.loadTotalDepartmentCounts();
     this.loadHods();
   }
 
@@ -113,6 +117,17 @@ export class AdminDashboardComponent implements OnInit {
       this.notifySvc.error(error);
     } finally {
       this.utilSvc.hideSpinner('inactive-hods-count-spinner');
+    }
+  }
+
+  async loadTotalDepartmentCounts(): Promise<void> {
+    try {
+      this.utilSvc.showSpinner('total-department-count-spinner');
+      this.counts.departments = await this.departmentSvc.getDepartmentCount();
+    } catch (error) {
+      this.notifySvc.error(error);
+    } finally {
+      this.utilSvc.hideSpinner('total-department-count-spinner');
     }
   }
 
