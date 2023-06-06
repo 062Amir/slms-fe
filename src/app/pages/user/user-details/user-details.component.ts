@@ -1,9 +1,10 @@
 import { Location } from '@angular/common';
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
-import { UserStatus } from 'src/app/app.constants';
+import { UserRoles, UserStatus } from 'src/app/app.constants';
 import { IUser } from 'src/app/core/interfaces/user.interface';
 import { AppNotificationService } from 'src/app/core/services/app-notification.service';
+import { AuthService } from 'src/app/core/services/auth.service';
 import { UserService } from 'src/app/core/services/user.service';
 import { UtilService } from 'src/app/core/services/util.service';
 
@@ -20,12 +21,17 @@ export class UserDetailsComponent implements OnInit {
     return UserStatus;
   }
 
+  get isUserAdmin(): boolean {
+    return this.authSvc.getLoggedInUser?.role === UserRoles.ADMIN;
+  }
+
   constructor(
     private activatedRoute: ActivatedRoute,
     public utilSvc: UtilService,
     private notifySvc: AppNotificationService,
     private userSvc: UserService,
-    private location: Location
+    private location: Location,
+    private authSvc: AuthService
   ) {}
 
   ngOnInit(): void {
