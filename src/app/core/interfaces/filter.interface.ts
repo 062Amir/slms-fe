@@ -1,6 +1,6 @@
 import { LeaveStatus, SortBy } from 'src/app/app.constants';
 
-interface CommonFiltes {
+interface CommonFilters {
   q?: string;
   page?: number;
   limit?: number;
@@ -8,9 +8,9 @@ interface CommonFiltes {
   sortBy?: `${SortBy}`;
 }
 
-export interface IDepartmentFilters extends CommonFiltes {}
+export interface IDepartmentFilters extends CommonFilters {}
 
-export interface ILeaveFilters extends CommonFiltes {
+export interface ILeaveFilters extends CommonFilters {
   reason_like?: string;
   status?: `${LeaveStatus}`;
   user?: string;
@@ -19,7 +19,7 @@ export interface ILeaveFilters extends CommonFiltes {
   toDate?: any;
 }
 
-export interface IUserFilters extends CommonFiltes {
+export interface IUserFilters extends CommonFilters {
   department?: string;
   status?: string;
 }
