@@ -75,6 +75,7 @@ export class UpdateMyProfileComponent implements OnInit {
         formData.append('profileImage', profileData.profileImage);
       }
       await this.authSvc.updateMyProfile(formData);
+      this.notifySvc.success('Profile Updated Successfully');
       this.router.navigate(['/profile']);
     } catch (error) {
       this.notifySvc.error(error);
