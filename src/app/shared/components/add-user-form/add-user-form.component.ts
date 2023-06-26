@@ -1,4 +1,4 @@
-import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
+import { Component, ElementRef, EventEmitter, Input, OnInit, Output, ViewChild } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { UserRoles, allowedImageTypes } from 'src/app/app.constants';
 import { AppValidators } from 'src/app/core/classes/app-validator.class';
@@ -19,6 +19,8 @@ export class AddUserFormComponent implements OnInit {
   @Input() disableDepartment: boolean = false;
   @Input() isUpdateForm: boolean = false;
   @Output() formSubmit: EventEmitter<FormData> = new EventEmitter<FormData>();
+
+  @ViewChild('imgRef') imgRef: ElementRef;
 
   addUserForm: FormGroup;
   departmentOptions: IDepartment[];
@@ -65,6 +67,16 @@ export class AddUserFormComponent implements OnInit {
   async onImageChange(event: any) {
     let file: File = event && event.target.files.length ? event.target.files[0] : null;
     this.addUserForm.controls['profileImage'].setValue(file || null, { emitModelToViewChange: false });
+
+    if (file && this.addUserForm.controls['profileImage'].valid) {
+      const croppedImage = await this.utilSvc.getCroppedImage(file);
+      if (croppedImage) {
+        this.addUserForm.controls['profileImage'].setValue(croppedImage || null, { emitModelToViewChange: false });
+      } else {
+        this.addUserForm.controls['profileImage'].setValue(null);
+        this.imgRef.nativeElement.value = '';
+      }
+    }
   }
 
   async onSubmit() {

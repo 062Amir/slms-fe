@@ -3,7 +3,7 @@
     <div class="col-12 mb-2">
       <div class="form-group">
         <label for="formFile" class="form-label">Profile Image</label>
-        <input class="form-control" type="file" id="formFile" accept="image/*" formControlName="profileImage"
+        <input #imgRef class="form-control" type="file" id="formFile" accept="image/*" formControlName="profileImage"
           (change)="onImageChange($event)">
         <small class="form-text text-danger" *ngIf="utilSvc.isFieldInvalid('profileImage', addUserForm, 'fileType')">You
           must upload an valid

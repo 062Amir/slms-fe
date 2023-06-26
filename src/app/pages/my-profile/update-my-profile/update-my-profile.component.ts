@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { NgbModal, NgbModalOptions } from '@ng-bootstrap/ng-bootstrap';
@@ -15,6 +15,7 @@ import { PasswordConfirmModalComponent } from 'src/app/shared/components/passwor
   styleUrls: ['./update-my-profile.component.css'],
 })
 export class UpdateMyProfileComponent implements OnInit {
+  @ViewChild('imgRef') imgRef: ElementRef;
   updateProfileForm: FormGroup;
 
   constructor(
@@ -51,6 +52,16 @@ export class UpdateMyProfileComponent implements OnInit {
   async onImageChange(event: any) {
     let file: File = event && event.target.files.length ? event.target.files[0] : null;
     this.updateProfileForm.controls['profileImage'].setValue(file || null, { emitModelToViewChange: false });
+
+    if (file && this.updateProfileForm.controls['profileImage'].valid) {
+      const croppedImage = await this.utilSvc.getCroppedImage(file);
+      if (croppedImage) {
+        this.updateProfileForm.controls['profileImage'].setValue(croppedImage || null, { emitModelToViewChange: false });
+      } else {
+        this.updateProfileForm.controls['profileImage'].setValue(null);
+        this.imgRef.nativeElement.value = '';
+      }
+    }
   }
 
   async onSubmit() {

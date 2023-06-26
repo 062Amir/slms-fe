@@ -7,6 +7,7 @@ import { UserStatus, LeaveStatus } from 'src/app/app.constants';
 import { ConfirmModalComponent } from 'src/app/shared/components/confirm-modal/confirm-modal.component';
 import { ILeave } from '../interfaces/leave.interface';
 import { IUser } from '../interfaces/user.interface';
+import { ImageCropperComponent } from 'src/app/shared/components/image-cropper/image-cropper.component';
 
 @Injectable()
 export class UtilService {
@@ -100,6 +101,20 @@ export class UtilService {
       const modalRef = this.modalSvc.open(ConfirmModalComponent, ngbModalOptions);
       modalRef.componentInstance.msg = msg;
       resolve((await modalRef.result) || false);
+    });
+  }
+
+  async getCroppedImage(file: File): Promise<Blob | null> {
+    return new Promise(async (resolve, reject) => {
+      const ngbModalOptions: NgbModalOptions = {
+        backdrop: 'static',
+        centered: true,
+        keyboard: false,
+        size: 'md',
+      };
+      const modalRef = this.modalSvc.open(ImageCropperComponent, ngbModalOptions);
+      modalRef.componentInstance.file = file;
+      resolve((await modalRef.result) || null);
     });
   }
 }

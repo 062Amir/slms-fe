@@ -9,6 +9,7 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { CoreModule } from './core/core.module';
 import { SharedModule } from './shared/shared.module';
+import { ImageCropperModule } from 'ngx-image-cropper';
 
 @NgModule({
   declarations: [AppComponent],
@@ -23,6 +24,7 @@ import { SharedModule } from './shared/shared.module';
     NgxSpinnerModule,
     ToastrModule.forRoot({ timeOut: 3000, positionClass: 'toast-bottom-right', preventDuplicates: true }),
     SharedModule,
+    ImageCropperModule,
   ],
   providers: [],
   bootstrap: [AppComponent],

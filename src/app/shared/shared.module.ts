@@ -16,6 +16,8 @@ import { TableComponent } from './components/table/table.component';
 import { UserImgComponent } from './components/user-img/user-img.component';
 import { UserInfoComponent } from './components/user-info/user-info.component';
 import { PasswordConfirmModalComponent } from './components/password-confirm-modal/password-confirm-modal.component';
+import { ImageCropperModule } from 'ngx-image-cropper';
+import { ImageCropperComponent } from './components/image-cropper/image-cropper.component';
 
 @NgModule({
   declarations: [
@@ -31,8 +33,9 @@ import { PasswordConfirmModalComponent } from './components/password-confirm-mod
     UserInfoComponent,
     FooterComponent,
     PasswordConfirmModalComponent,
+    ImageCropperComponent,
   ],
-  imports: [CommonModule, FormsModule, ReactiveFormsModule, NgbModule, RouterModule, NgxSpinnerModule],
+  imports: [CommonModule, FormsModule, ReactiveFormsModule, NgbModule, RouterModule, NgxSpinnerModule, ImageCropperModule],
   exports: [
     AddUserFormComponent,
     SidebarComponent,
@@ -46,6 +49,7 @@ import { PasswordConfirmModalComponent } from './components/password-confirm-mod
     UserInfoComponent,
     FooterComponent,
     PasswordConfirmModalComponent,
+    ImageCropperComponent,
   ],
 })
 export class SharedModule {}
