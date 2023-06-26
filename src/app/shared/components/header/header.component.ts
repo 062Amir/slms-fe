@@ -10,12 +10,12 @@ import { SidebarService } from 'src/app/core/services/sidebar.service';
   styleUrls: ['./header.component.css'],
 })
 export class HeaderComponent implements OnInit {
-  loggedInUser: IUser;
+  get loggedInUser(): IUser {
+    return this.authSvc.getLoggedInUser;
+  }
   constructor(private authSvc: AuthService, private router: Router, private sidebarSvc: SidebarService) {}
 
-  ngOnInit(): void {
-    this.loggedInUser = this.authSvc.getLoggedInUser;
-  }
+  ngOnInit(): void {}
 
   openSidebar(event: Event) {
     event.preventDefault();

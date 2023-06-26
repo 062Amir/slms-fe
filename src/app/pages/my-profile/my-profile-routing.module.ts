@@ -1,11 +1,16 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { MyProfileComponent } from './my-profile.component';
+import { ViewMyProfileComponent } from './view-my-profile/view-my-profile.component';
+import { UpdateMyProfileComponent } from './update-my-profile/update-my-profile.component';
 
 const routes: Routes = [
   {
     path: '',
-    component: MyProfileComponent,
+    component: ViewMyProfileComponent,
+  },
+  {
+    path: 'edit',
+    component: UpdateMyProfileComponent,
   },
 ];
 

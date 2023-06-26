@@ -10,6 +10,7 @@ export const apiResources = {
   register: createUrl('/auth/register'),
   verifyEmail: createUrl('/auth/verify-email'),
   updatePassword: createUrl('/auth/reset'),
+  updateMyProfile: createUrl('/auth/me'),
   department: createUrl('/departments'),
   user: createUrl('/users'),
   leave: createUrl('/leaves'),

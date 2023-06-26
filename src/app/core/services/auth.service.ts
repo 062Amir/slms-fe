@@ -40,6 +40,12 @@ export class AuthService {
     return await lastValueFrom(this.http.post<IUser>(apiResources.updatePassword, payload, this.utilSvc.getHttpOptions()));
   }
 
+  async updateMyProfile(payload: FormData): Promise<IUser> {
+    const response = await lastValueFrom(this.http.put<IUser>(apiResources.updateMyProfile, payload));
+    this.storageSvc.setItem(LocalStorageKeys.LOGGED_IN_USER, response);
+    return response;
+  }
+
   logout() {
     try {
       lastValueFrom(this.http.post<IUser>(apiResources.logout, null, this.utilSvc.getHttpOptions()));

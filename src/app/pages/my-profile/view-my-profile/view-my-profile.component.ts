@@ -3,11 +3,11 @@ import { IUser } from 'src/app/core/interfaces/user.interface';
 import { AuthService } from 'src/app/core/services/auth.service';
 
 @Component({
-  selector: 'app-my-profile',
-  templateUrl: './my-profile.component.html',
-  styleUrls: ['./my-profile.component.css'],
+  selector: 'app-view-my-profile',
+  templateUrl: './view-my-profile.component.html',
+  styleUrls: ['./view-my-profile.component.css'],
 })
-export class MyProfileComponent implements OnInit {
+export class ViewMyProfileComponent implements OnInit {
   loggedInUser: IUser;
 
   constructor(private authSvc: AuthService) {}

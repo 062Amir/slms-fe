@@ -15,6 +15,7 @@ import { StaffDashboardComponent } from './components/staff-dashboard/staff-dash
 import { TableComponent } from './components/table/table.component';
 import { UserImgComponent } from './components/user-img/user-img.component';
 import { UserInfoComponent } from './components/user-info/user-info.component';
+import { PasswordConfirmModalComponent } from './components/password-confirm-modal/password-confirm-modal.component';
 
 @NgModule({
   declarations: [
@@ -29,6 +30,7 @@ import { UserInfoComponent } from './components/user-info/user-info.component';
     AdminDashboardComponent,
     UserInfoComponent,
     FooterComponent,
+    PasswordConfirmModalComponent,
   ],
   imports: [CommonModule, FormsModule, ReactiveFormsModule, NgbModule, RouterModule, NgxSpinnerModule],
   exports: [
@@ -43,6 +45,7 @@ import { UserInfoComponent } from './components/user-info/user-info.component';
     AdminDashboardComponent,
     UserInfoComponent,
     FooterComponent,
+    PasswordConfirmModalComponent,
   ],
 })
 export class SharedModule {}
