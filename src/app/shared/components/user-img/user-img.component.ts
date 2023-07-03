@@ -1,4 +1,5 @@
 import { Component, Input, OnInit } from '@angular/core';
+import { UtilService } from 'src/app/core/services/util.service';
 
 @Component({
   selector: 'app-user-img',
@@ -8,8 +9,15 @@ import { Component, Input, OnInit } from '@angular/core';
 export class UserImgComponent implements OnInit {
   @Input() imgSize: number = 40;
   @Input() imagePath: string | undefined | File;
+  @Input() hideImageFromViewer: boolean = false;
 
-  constructor() {}
+  constructor(private utilSvc: UtilService) {}
 
   ngOnInit(): void {}
+
+  showImageInViewer() {
+    if (!this.hideImageFromViewer) {
+      this.utilSvc.showImageViewer(this.imagePath as string);
+    }
+  }
 }

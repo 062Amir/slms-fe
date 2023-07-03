@@ -18,6 +18,7 @@ import { UserInfoComponent } from './components/user-info/user-info.component';
 import { PasswordConfirmModalComponent } from './components/password-confirm-modal/password-confirm-modal.component';
 import { ImageCropperModule } from 'ngx-image-cropper';
 import { ImageCropperComponent } from './components/image-cropper/image-cropper.component';
+import { ImageViewerComponent } from './components/image-viewer/image-viewer.component';
 
 @NgModule({
   declarations: [
@@ -34,6 +35,7 @@ import { ImageCropperComponent } from './components/image-cropper/image-cropper.
     FooterComponent,
     PasswordConfirmModalComponent,
     ImageCropperComponent,
+    ImageViewerComponent,
   ],
   imports: [CommonModule, FormsModule, ReactiveFormsModule, NgbModule, RouterModule, NgxSpinnerModule, ImageCropperModule],
   exports: [
@@ -50,6 +52,7 @@ import { ImageCropperComponent } from './components/image-cropper/image-cropper.
     FooterComponent,
     PasswordConfirmModalComponent,
     ImageCropperComponent,
+    ImageViewerComponent,
   ],
 })
 export class SharedModule {}

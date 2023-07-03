@@ -8,6 +8,7 @@ import { ConfirmModalComponent } from 'src/app/shared/components/confirm-modal/c
 import { ILeave } from '../interfaces/leave.interface';
 import { IUser } from '../interfaces/user.interface';
 import { ImageCropperComponent } from 'src/app/shared/components/image-cropper/image-cropper.component';
+import { ImageViewerComponent } from 'src/app/shared/components/image-viewer/image-viewer.component';
 
 @Injectable()
 export class UtilService {
@@ -116,5 +117,16 @@ export class UtilService {
       modalRef.componentInstance.file = file;
       resolve((await modalRef.result) || null);
     });
+  }
+
+  showImageViewer(imgUrl: string): void {
+    const ngbModalOptions: NgbModalOptions = {
+      backdrop: 'static',
+      centered: true,
+      keyboard: false,
+      size: 'sm',
+    };
+    const modalRef = this.modalSvc.open(ImageViewerComponent, ngbModalOptions);
+    modalRef.componentInstance.imgUrl = imgUrl;
   }
 }

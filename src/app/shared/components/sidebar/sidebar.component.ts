@@ -12,12 +12,14 @@ import { SidebarService } from 'src/app/core/services/sidebar.service';
 })
 export class SidebarComponent implements OnInit {
   sidebarItems: ISidebarItem[];
-  loggedInUser: IUser;
+
+  get loggedInUser(): IUser {
+    return this.authSvc.getLoggedInUser;
+  }
 
   constructor(public sidebarSvc: SidebarService, private authSvc: AuthService, private router: Router, private elementRef: ElementRef) {}
 
   ngOnInit(): void {
-    this.loggedInUser = this.authSvc.getLoggedInUser;
     this.sidebarItems = this.sidebarSvc.getSidebarItems(this.loggedInUser);
   }
 

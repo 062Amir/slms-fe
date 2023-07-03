@@ -10,7 +10,7 @@
         <li ngbDropdown class="nav-item dropdown">
           <a ngbDropdownToggle class="nav-link dropdown-toggle" id="dropdownMenuLink" role="button"
             data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-            <app-user-img [imagePath]="loggedInUser.profileImage"></app-user-img>
+            <app-user-img [imagePath]="loggedInUser.profileImage" [hideImageFromViewer]="true"></app-user-img>
           </a>
           <div ngbDropdownMenu class="dropdown-menu" aria-labelledby="dropdownMenuLink">
             <a class="dropdown-item" role="button" routerLink="/profile">My Profile</a>
